@@ -1,0 +1,19 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[remote "origin"]
+	url = https://github.com/RolandSzB/VaradifiVUE.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+[branch "gh-pages"]
+	github-pr-base-branch = "RolandSzB#VaradifiVUE#main"
+	vscode-merge-base = main
+	remote = origin
+	merge = refs/heads/gh-pages
+	github-pr-owner-number = "RolandSzB#VaradifiVUE#1"
