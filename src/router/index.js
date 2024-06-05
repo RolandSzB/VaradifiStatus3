@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../views/HomePage.vue";
 import BuyShirt from "../views/BuyShirt.vue";
 import CheckChart from "../views/CheckChart.vue";
+import EventAdmin from "../views/EventAdmin.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,6 +21,11 @@ const router = createRouter({
       path: "/chart",
       name: "chart",
       component: CheckChart,
+    },
+    {
+      path: "/admin",
+      name: "admint",
+      component: EventAdmin,
     },
   ],
 });
