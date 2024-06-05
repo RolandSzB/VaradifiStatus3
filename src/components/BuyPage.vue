@@ -9,7 +9,6 @@ const shirtSize = ref("");
 const shirtType = ref(0);
 
 import axios from "axios";
-import { v4 as uuidv4 } from "uuid";
 
 async function submitForm() {
   // Check if all required fields are filled
@@ -29,7 +28,6 @@ async function submitForm() {
   await axios.post(
     "http://localhost:3000/products",
     {
-      id: uuidv4(),
       name: clientName.value,
       phone: clientPhone.value,
       email: clientMail.value,
@@ -65,10 +63,10 @@ async function submitForm() {
       />
       <form @submit.prevent="submitForm" v-if="!formSubmitted">
         <div>
-          <label for="first_name" class="block mb-2 text-sm font-medium text-white">Nev</label>
+          <label for="name" class="block mb-2 text-sm font-medium text-white">Nev</label>
           <input
             type="text"
-            id="first_name"
+            id="name"
             class="bg-gray-500 border border-gray-300 text-white text-sm rounded-lg block w-full p-2.5"
             placeholder="Teljes nev"
             v-model="clientName"

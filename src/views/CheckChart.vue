@@ -9,12 +9,25 @@ async function displayPostAPIWelcome() {
 }
 
 async function deleteProduct(productId) {
-  axios.delete("http://localhost:3000/products", {
-    headers: {
-      "Content-Type": "application/json",
-    },
-    data: { productId },
-  });
+  const productElement = document.getElementById(productId);
+  if (productElement) {
+    productElement.remove();
+  }
+
+  try {
+    await axios.delete("http://localhost:3000/products", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: { productId },
+    });
+
+    console.log(`Product ${productId} deleted successfully`);
+  } catch (error) {
+    console.error(`Failed to delete product ${productId}:`, error);
+  }
+
+  // Refresh the page or update other parts of the UI as needed
   await displayPostAPIWelcome();
 }
 </script>
