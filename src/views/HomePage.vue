@@ -10,6 +10,15 @@ import About from "../components/About.vue";
 import { useEventsStore } from "../stores/events";
 import { usePostsStore } from "../stores/posts";
 
+import { onMounted } from "vue";
+import axios from "axios";
+
+onMounted(async () => {
+  const events = await axios.get("http://localhost:3000/events");
+  console.log(events.data);
+
+  eventStore.events = events.data;
+});
 const eventStore = useEventsStore();
 const postStore = usePostsStore();
 </script>

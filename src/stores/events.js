@@ -9,11 +9,13 @@ export const useEventsStore = defineStore("events", {
     };
   },
   actions: {
-    async addEvent(name, favorite) {
+    async addEvent(dateNum, dateMonth, eventTitle, eventDate, eventPeriod) {
       const newEvent = {
-        name,
-        favorite,
-        ClientId: 4,
+        dateNum,
+        dateMonth,
+        eventTitle,
+        eventDate,
+        eventPeriod,
       };
       this.events.push(newEvent);
 
