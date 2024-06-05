@@ -6,8 +6,10 @@ const eventStore = useEventsStore();
 </script>
 
 <template>
-  <EventCalendar v-for="event in eventStore.events" :details="event"></EventCalendar>
-  <AdminPage></AdminPage>
+  <div class="flex flex-col bg-amber-100">
+    <EventCalendar v-for="event in eventStore.events" :details="event"></EventCalendar>
+    <AdminPage></AdminPage>
+  </div>
 </template>
 
 <style>
