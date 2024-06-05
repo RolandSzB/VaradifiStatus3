@@ -1,7 +1,7 @@
 <script></script>
 <template>
   <div class="bg-amber-100">
-    <form>
+    <form class="mx-4">
       <div>
         <label for="dateNum " class="block mb-2 text-sm font-medium text-black">Datum</label>
         <input
@@ -65,7 +65,7 @@
 
       <div class="flex justify-between">
         <button
-          class="heartbeat rounded-2xl border-black bg-black py-2 px-4 my-2 mx-16 xl:mx-40 hover:bg-amber-100 hover:text-black hover:border-2 text-white text-center text-xl xl:text-2xl font-bold"
+          class="heartbeat rounded-2xl border-black bg-black py-2 px-4 my-2 mx-4 hover:bg-amber-100 hover:text-black hover:border-2 text-white text-center text-xl xl:text-2xl font-bold"
         >
           Uj esemeny
         </button>
