@@ -1,5 +1,5 @@
 <script setup>
-import EventCalendar from "../components/EventCalendar.vue";
+import AdminCalendar from "../components/AdminCalendar.vue";
 import AdminPage from "../components/AdminPage.vue";
 import { useEventsStore } from "../stores/events";
 const eventStore = useEventsStore();
@@ -16,9 +16,19 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="flex bg-amber-100">
-    <AdminPage></AdminPage>
-    <EventCalendar v-for="event in eventStore.events" :details="event"> </EventCalendar>
+  <div class="flex bg-amber-100 items-center justify-center">
+    <div>
+      <AdminPage></AdminPage>
+    </div>
+    <div class="flex flex-col">
+      <AdminCalendar
+        v-for="event in eventStore.events"
+        :id="event.id"
+        :key="event.id"
+        :details="event"
+      >
+      </AdminCalendar>
+    </div>
   </div>
 </template>
 

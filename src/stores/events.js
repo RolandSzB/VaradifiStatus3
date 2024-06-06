@@ -47,15 +47,15 @@ export const useEventsStore = defineStore("events", {
       ws.send(JSON.stringify(this.events));
     },
 
-    deleteEvent(eventId) {
-      const eventIndex = this.events.findIndex(event => event.id === eventId);
+    deleteEvent(id) {
+      const eventIndex = this.events.findIndex(event => event.id === id);
       this.events.splice(eventIndex, 1);
 
       axios.delete("http://localhost:3000/events", {
         headers: {
           "Content-Type": "application/json",
         },
-        data: { eventId },
+        data: { id },
       });
       localStorage.setItem("events", JSON.stringify(this.events));
       ws.send(JSON.stringify(this.events));
