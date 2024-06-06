@@ -1,5 +1,7 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import axios from "axios";
+
 const formSubmitted = ref(false);
 
 const clientName = ref("");
@@ -8,7 +10,14 @@ const clientMail = ref("");
 const shirtSize = ref("");
 const shirtType = ref(0);
 
-import axios from "axios";
+const computedImageUrl = computed(() => {
+  const selectedShirt = shirtType.value;
+  if (!selectedShirt) return "../images/shirts.png"; // Default image
+
+  const optionElement = document.querySelector(`#type option[value="${selectedShirt}"]`);
+  const imageData = optionElement?.dataset.image;
+  return imageData || "../images/shirts.png"; // Fallback if no image data found
+});
 
 async function submitForm() {
   // Check if all required fields are filled
@@ -57,8 +66,8 @@ async function submitForm() {
     </div>
     <div class="flex flex-col xl:flex-row justify-between items-center">
       <img
-        src="../images/shirts.png"
-        alt="Logo"
+        :src="computedImageUrl"
+        alt="Selected Shirt"
         class="w-full h-3/5 xl:w-3/5 xl:h-3/5 mt-10 xl:mt-0 object-cover xl:me-4 justify-start"
       />
       <form @submit.prevent="submitForm" v-if="!formSubmitted">
@@ -122,10 +131,18 @@ async function submitForm() {
             v-model="shirtType"
           >
             <option value="" disabled selected>Kerlek valassz tipust</option>
-            <option value="Sima póló- 25 lej">Sima póló- 25 lej</option>
-            <option value="Galléros póló- 35 lej">Galléros póló- 35 lej</option>
-            <option value="Pulcsi- 60 lej">Pulcsi- 60 lej</option>
-            <option value="Kapucnis pulcsi- 70 lej">Kapucnis pulcsi- 70 lej</option>
+            <option value="Sima-polo-25" data-image="/src/images/shirts.png">
+              Sima póló- 25 lej
+            </option>
+            <option value="Galleros-polo-35" data-image="/src/images/shirts2.png">
+              Galléros póló- 35 lej
+            </option>
+            <option value="Pulcsi- 60 lej" data-image="/src/images/shirts3.png">
+              Pulcsi- 60 lej
+            </option>
+            <option value="Kapucnis pulcsi- 70 lej" data-image="/src/images/shirts4.png">
+              Kapucnis pulcsi- 70 lej
+            </option>
           </select>
         </div>
         <div class="flex items-start mt-4 mb-6">
