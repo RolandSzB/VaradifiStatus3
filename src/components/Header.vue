@@ -84,6 +84,10 @@ const scrollToSection = sectionId => {
         <router-link to="/buy" class="hover:underline me-6 hover:text-amber-700">
           Rendelj
         </router-link>
+        <select v-model="$i18n.locale">
+          <option value="hu">Magyar</option>
+          <option value="en">English</option>
+        </select>
       </div>
 
       <button @click="toggleDropdown" class="text-3xl xl:hidden relative">
