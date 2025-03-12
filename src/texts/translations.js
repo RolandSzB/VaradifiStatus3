@@ -18,6 +18,14 @@ export default {
     //home
     bigTitle: "This is your place!",
     groupName: "Oradea Baptist Youth Group",
+    //events
+    meetUs: "Lets meet every Wednesday at 7 PM at Berthelot 5!",
+    otherEvents: "Other events",
+    //homepage shirts
+    orderShirt: "Order Varadifi shirt",
+    //prayer groups
+    joinPrayerGroup: "Join a prayer group",
+    joinButton: "Join",
     placeholderName: "Enter your name",
     dateMonth: "Month: {month}",
   },
@@ -40,6 +48,14 @@ export default {
     //kezdolap
     bigTitle: "Itt a helyed!",
     groupName: "Nagyváradi Baptista Ifjúság",
+    //esemenyek
+    meetUs: "Találkozzunk minden szerdán 19 órától a Berthelot 5-nél!",
+    otherEvents: "További események",
+    //kezdolap pólók
+    orderShirt: "Rendelj Váradifis pólót",
+    //kiscsoportok
+    joinPrayerGroup: "Csatlakozz egy kiscsoporthoz",
+    joinButton: "Csatlakozz",
     placeholderName: "Add meg a neved",
     dateMonth: "Hónap: {month}",
   },

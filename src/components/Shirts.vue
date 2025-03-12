@@ -8,13 +8,13 @@
     />
     <div class="flex flex-col mb-6">
       <p class="text-white text-center text-3xl xl:text-5xl font-bold ms-4 my-8 xl:my-14">
-        Rendelj Váradifis pólót
+        {{ $t("orderShirt") }}
       </p>
 
       <button
         class="heartbeat rounded-2xl border-amber-100 bg-amber-100 py-2 px-4 my-2 mx-4 xl:mx-40 hover:text-amber-700 text-black text-center text-xl xl:text-2xl font-bold"
       >
-        <RouterLink to="/buy">Rendelés </RouterLink>
+        <RouterLink to="/buy">{{ $t("placeOrder") }} </RouterLink>
       </button>
     </div>
   </div>

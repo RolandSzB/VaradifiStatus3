@@ -8,7 +8,7 @@
     />
     <div class="flex flex-col mx-16 mb-6">
       <p class="text-center text-3xl xl:text-5xl font-bold ms-4 my-4 xl:my-14">
-        Csatlakozz egy kiscsoporthoz
+        {{ $t("joinPrayerGroup") }}
       </p>
       <a
         href="https://docs.google.com/forms/d/e/1FAIpQLSenDEIRO-sMmXNnGK6qHEspgn_yFJEZBEpEI7b9ln3jOTwa9g/viewform"
@@ -18,7 +18,7 @@
         <button
           class="heartbeat rounded-2xl border-black bg-black py-2 px-4 my-2 mx-16 xl:mx-40 hover:bg-amber-100 hover:text-black hover:border-2 text-white text-center text-xl xl:text-2xl font-bold"
         >
-          Csatlakozz
+          {{ $t("joinButton") }}
         </button>
       </a>
     </div>
