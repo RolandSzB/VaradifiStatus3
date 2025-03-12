@@ -77,7 +77,7 @@ const scrollToSection = sectionId => {
           {{ $t("shirts") }}
         </a>
         <a
-          @click.prevent="scrollToSection('about')"
+          @click.prevent="scrollToSection('aboutUsPage')"
           class="hover:underline me-6 hover:text-amber-700 cursor-pointer"
         >
           {{ $t("aboutUs") }}
@@ -141,7 +141,7 @@ const scrollToSection = sectionId => {
           </li>
           <li>
             <a
-              @click.prevent="scrollToSection('about')"
+              @click.prevent="scrollToSection('aboutUsPage')"
               class="block py-2 hover:underline hover:text-amber-700 cursor-pointer"
             >
               {{ $t("aboutUs") }}

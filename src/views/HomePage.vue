@@ -8,6 +8,7 @@ import Groups from "../components/Groups.vue";
 import Content from "../components/Content.vue";
 import InstaFeed from "../components/InstaFeed.vue";
 import About from "../components/About.vue";
+import CopyrightPage from "../components/CopyrightPage.vue";
 import { useEventsStore } from "../stores/events";
 import { usePostsStore } from "../stores/posts";
 
@@ -39,7 +40,8 @@ const postStore = usePostsStore();
   <div class="flex flex-col xl:flex-row bg-amber-100 xl:px-4 justify-center h-196">
     <InstaFeed v-for="post in postStore.posts" :details="post"></InstaFeed>
   </div>
-  <About id="about"></About>
+  <About id="aboutUsPage"></About>
+  <CopyrightPage id="copyright"></CopyrightPage>
 </template>
 
 <style>

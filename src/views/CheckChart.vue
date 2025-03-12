@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import axios from "axios";
 import Header from "../components/Header.vue";
+import CopyrightPage from "../components/CopyrightPage.vue";
 
 let cartJSON = ref();
 
@@ -81,6 +82,7 @@ async function deleteProduct(productId) {
       </div>
     </div>
   </div>
+  <CopyrightPage />
 </template>
 <style>
 @tailwind base;

@@ -6,7 +6,7 @@ export default {
     thursday: "Thursday at",
     sunday: "Sunday at",
     description:
-      "If you are searching for your place, if you are searching for who you are, if you are looking for a place where you can be yourself, if you are looking for someone to call a friend, if you are searching for God… THIS IS THE PLACE FOR YOU! If you are studying in Oradea and want to be part of a welcoming community, we invite you to Váradifi. We meet every Wednesday at 7 PM at **5 Berthelot Street**, and we would love for you to join our gatherings. Give us a chance—you won’t regret it!",
+      "If you are searching for your place, if you are searching for who you are, if you are looking for a place where you can be yourself, if you are looking for someone to call a friend, if you are searching for God… THIS IS THE PLACE FOR YOU! If you are studying in Oradea and want to be part of a welcoming community, we invite you to Váradifi. We meet every Wednesday at 7 PM at 5 Berthelot Street, and we would love for you to join our gatherings. Give us a chance—you won’t regret it!",
     shortInfo:
       "A Christian youth group in Oradea that meets weekly to talk, worship, and learn from the Bible. We invite you to join us every Wednesday at 7 PM!",
     //header
