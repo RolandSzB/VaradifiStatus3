@@ -3,22 +3,24 @@ import { ref, onMounted, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
-
-const lastScrollY = ref(0); // Tárolja az előző görgetési pozíciót
-const isHidden = ref(false); // Ez szabályozza, hogy a navbar el legyen-e rejtve
+const isHidden = ref(false);
+const lastScrollY = ref(0);
+const isDropdownOpen = ref(false);
 
 const handleScroll = () => {
   const currentScrollY = window.scrollY;
 
   if (currentScrollY > lastScrollY.value && currentScrollY > 50) {
-    // Ha lefelé görgetünk és nem vagyunk a tetején, rejtse el
     isHidden.value = true;
   } else {
-    // Ha felfelé görgetünk, hozza vissza
     isHidden.value = false;
   }
 
-  lastScrollY.value = currentScrollY; // Frissítsük az előző görgetési pozíciót
+  lastScrollY.value = currentScrollY;
+};
+
+const toggleDropdown = () => {
+  isDropdownOpen.value = !isDropdownOpen.value;
 };
 
 onMounted(() => {
@@ -30,6 +32,7 @@ onUnmounted(() => {
 });
 
 const scrollToSection = sectionId => {
+  isDropdownOpen.value = false;
   if (window.location.pathname === "/") {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   } else {
@@ -46,31 +49,81 @@ const scrollToSection = sectionId => {
       'translate-y-0 bg-amber-100/90 backdrop-blur-md shadow-md': !isHidden,
     }"
   >
-    <div class="flex justify-between p-3 items-center transition-all duration-300">
-      <div class="flex items-center justify-center">
+    <div class="flex justify-between p-3 items-center">
+      <div class="flex items-center">
         <router-link to="/" class="hover:underline me-6 hover:bg-amber-300 hover:rounded-lg">
           <img src="../images/varadifi.png" alt="Logo" class="w-8 h-8 object-cover" />
         </router-link>
       </div>
-      <div class="flex items-center justify-center">
-        <router-link to="/buy" class="hover:underline me-6 hover:text-amber-700 hidden xl:block">
-          Rendelj</router-link
-        >
+
+      <div class="hidden xl:flex items-center">
+        <router-link to="/buy" class="hover:underline me-6 hover:text-amber-700">
+          Rendelj
+        </router-link>
         <a
           @click.prevent="scrollToSection('events')"
-          class="hover:underline me-6 hover:text-amber-700 cursor-pointer hidden xl:block"
-          >Események</a
+          class="hover:underline me-6 hover:text-amber-700 cursor-pointer"
         >
+          Események
+        </a>
         <a
           @click.prevent="scrollToSection('shirts')"
-          class="hover:underline me-6 hover:text-amber-700 cursor-pointer hidden xl:block"
-          >Pólók</a
+          class="hover:underline me-6 hover:text-amber-700 cursor-pointer"
         >
+          Pólók
+        </a>
         <a
           @click.prevent="scrollToSection('eventabouts')"
-          class="hover:underline me-6 hover:text-amber-700 cursor-pointer hidden xl:block"
-          >Rólunk</a
+          class="hover:underline me-6 hover:text-amber-700 cursor-pointer"
         >
+          Rólunk
+        </a>
+      </div>
+
+      <button @click="toggleDropdown" class="text-3xl xl:hidden relative">
+        <i class="bi bi-list hover:text-amber-700"></i>
+      </button>
+
+      <div
+        v-show="isDropdownOpen"
+        class="absolute right-2 top-14 w-60 bg-amber-100 rounded-lg shadow-lg transition-all duration-300 ease-in-out opacity-100 scale-100"
+        :class="{ 'opacity-0 scale-95': !isDropdownOpen }"
+      >
+        <ul class="py-2 text-sm text-black text-center">
+          <li>
+            <router-link
+              to="/buy"
+              @click="isDropdownOpen = false"
+              class="block py-2 hover:underline hover:text-amber-700"
+            >
+              Rendelj
+            </router-link>
+          </li>
+          <li>
+            <a
+              @click.prevent="scrollToSection('events')"
+              class="block py-2 hover:underline hover:text-amber-700 cursor-pointer"
+            >
+              Események
+            </a>
+          </li>
+          <li>
+            <a
+              @click.prevent="scrollToSection('shirts')"
+              class="block py-2 hover:underline hover:text-amber-700 cursor-pointer"
+            >
+              Pólók
+            </a>
+          </li>
+          <li>
+            <a
+              @click.prevent="scrollToSection('eventabouts')"
+              class="block py-2 hover:underline hover:text-amber-700 cursor-pointer"
+            >
+              Rólunk
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
