@@ -2,14 +2,12 @@
 <template>
   <div class="flex flex-col bg-amber-100 px-20 xl:px-28 pb-20 justify-center">
     <p class="text-4xl xl:text-5xl font-bold text-center py-10">
-      Váradifis tartalmak
+      {{ $t("varadifiContent") }}
     </p>
 
     <!-- carousel -->
     <div class="flex justify-center items-center">
-      <div
-        class="carousel relative shadow-2xl bg-white w-full h-full xl:w-3/5 xl:h-auto"
-      >
+      <div class="carousel relative shadow-2xl bg-white w-full h-full xl:w-3/5 xl:h-auto">
         <div class="carousel-inner relative overflow-hidden w-full h-full">
           <!--Slide 1-->
           <input
@@ -22,14 +20,8 @@
             checked="checked"
           />
           <div class="carousel-item absolute opacity-0 h-full">
-            <a
-              href="https://www.youtube.com/@varadifi"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div
-                class="block h-full w-full bg-amber-100 text-white text-5xl text-center"
-              >
+            <a href="https://www.youtube.com/@varadifi" target="_blank" rel="noopener noreferrer">
+              <div class="block h-full w-full bg-amber-100 text-white text-5xl text-center">
                 <img
                   src="../images/titkosBunok.png"
                   alt="Logo"
@@ -59,14 +51,8 @@
             hidden=""
           />
           <div class="carousel-item absolute opacity-0 h-full">
-            <a
-              href="https://www.youtube.com/@varadifi"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div
-                class="block h-full w-full bg-amber-100 text-white text-5xl text-center"
-              >
+            <a href="https://www.youtube.com/@varadifi" target="_blank" rel="noopener noreferrer">
+              <div class="block h-full w-full bg-amber-100 text-white text-5xl text-center">
                 <img
                   src="../images/digiTalizzAllj.png"
                   alt="Logo"
@@ -96,14 +82,8 @@
             hidden=""
           />
           <div class="carousel-item absolute opacity-0 h-full">
-            <a
-              href="https://www.youtube.com/@varadifi"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div
-                class="block h-full w-full bg-amber-100 text-white text-5xl text-center"
-              >
+            <a href="https://www.youtube.com/@varadifi" target="_blank" rel="noopener noreferrer">
+              <div class="block h-full w-full bg-amber-100 text-white text-5xl text-center">
                 <img
                   src="../images/istenHarcosai.png"
                   alt="Logo"
@@ -151,9 +131,7 @@
       </div>
     </div>
   </div>
-  <div
-    class="flex justify-start items-center bg-amber-100 py-4 xl:py-10 ps-10 xl:ps-32"
-  >
+  <div class="flex justify-start items-center bg-amber-100 py-4 xl:py-10 ps-10 xl:ps-32">
     <i class="bi bi-instagram text-3xl xl:text-7xl me-4"></i>
     <p class="text-2xl xl:text-6xl font-sans">varadifi</p>
   </div>

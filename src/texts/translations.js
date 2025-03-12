@@ -3,8 +3,8 @@ export default {
     //about us
     help: "Let us help You!",
     church: "Church events:",
-    thursday: "Thursday",
-    sunday: "Sunday",
+    thursday: "Thursday at",
+    sunday: "Sunday at",
     description:
       "If you are searching for your place, if you are searching for who you are, if you are looking for a place where you can be yourself, if you are looking for someone to call a friend, if you are searching for God… THIS IS THE PLACE FOR YOU! If you are studying in Oradea and want to be part of a welcoming community, we invite you to Váradifi. We meet every Wednesday at 7 PM at **5 Berthelot Street**, and we would love for you to join our gatherings. Give us a chance—you won’t regret it!",
     shortInfo:
@@ -26,6 +26,8 @@ export default {
     //prayer groups
     joinPrayerGroup: "Join a prayer group",
     joinButton: "Join",
+    //content
+    varadifiContent: "Varadifi content",
     placeholderName: "Enter your name",
     dateMonth: "Month: {month}",
   },
@@ -56,6 +58,8 @@ export default {
     //kiscsoportok
     joinPrayerGroup: "Csatlakozz egy kiscsoporthoz",
     joinButton: "Csatlakozz",
+    //tartalmak
+    varadifiContent: "Váradifis tartalmak",
     placeholderName: "Add meg a neved",
     dateMonth: "Hónap: {month}",
   },
