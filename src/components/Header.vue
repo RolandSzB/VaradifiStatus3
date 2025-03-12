@@ -61,30 +61,30 @@ const scrollToSection = sectionId => {
           @click.prevent="scrollToSection('home')"
           class="hover:underline me-6 hover:text-amber-700 cursor-pointer"
         >
-          Kezdőlap
+          {{ $t("home") }}
         </a>
         <a
           @click.prevent="scrollToSection('events')"
           class="hover:underline me-6 hover:text-amber-700 cursor-pointer"
         >
-          Események
+          {{ $t("eventS") }}
         </a>
         <a
           @click.prevent="scrollToSection('shirts')"
           class="hover:underline me-6 hover:text-amber-700 cursor-pointer"
         >
-          Pólók
+          {{ $t("shirts") }}
         </a>
         <a
           @click.prevent="scrollToSection('about')"
           class="hover:underline me-6 hover:text-amber-700 cursor-pointer"
         >
-          Rólunk
+          {{ $t("aboutUs") }}
         </a>
         <router-link to="/buy" class="hover:underline me-6 hover:text-amber-700">
-          Rendelj
+          {{ $t("placeOrder") }}
         </router-link>
-        <select v-model="$i18n.locale">
+        <select v-model="$i18n.locale" class="bg-amber-100 border-2 border-black rounded-lg p-1">
           <option value="hu">Magyar</option>
           <option value="en">English</option>
         </select>
@@ -105,7 +105,7 @@ const scrollToSection = sectionId => {
               @click.prevent="scrollToSection('home')"
               class="block py-2 hover:underline hover:text-amber-700 cursor-pointer"
             >
-              Kezdőlap
+              {{ $t("home") }}
             </a>
           </li>
           <li>
@@ -113,7 +113,7 @@ const scrollToSection = sectionId => {
               @click.prevent="scrollToSection('events')"
               class="block py-2 hover:underline hover:text-amber-700 cursor-pointer"
             >
-              Események
+              {{ $t("eventS") }}
             </a>
           </li>
           <li>
@@ -121,7 +121,7 @@ const scrollToSection = sectionId => {
               @click.prevent="scrollToSection('shirts')"
               class="block py-2 hover:underline hover:text-amber-700 cursor-pointer"
             >
-              Pólók
+              {{ $t("shirts") }}
             </a>
           </li>
           <li>
@@ -129,7 +129,7 @@ const scrollToSection = sectionId => {
               @click.prevent="scrollToSection('about')"
               class="block py-2 hover:underline hover:text-amber-700 cursor-pointer"
             >
-              Rólunk
+              {{ $t("aboutUs") }}
             </a>
           </li>
           <li>
@@ -138,7 +138,7 @@ const scrollToSection = sectionId => {
               @click="isDropdownOpen = false"
               class="block py-2 hover:underline hover:text-amber-700"
             >
-              Rendelj
+              {{ $t("placeOrder") }}
             </router-link>
           </li>
         </ul>
