@@ -43,11 +43,7 @@ async function submitForm() {
       size: shirtSize.value,
       type: shirtType.value,
     },
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
+    { headers: { "Content-Type": "application/json" } }
   );
   clientName.value = "";
   clientPhone.value = "";
@@ -61,7 +57,7 @@ async function submitForm() {
   <div class="flex flex-col bg-black justify-between items-center px-8 xl:px-60">
     <div class="flex mb-6">
       <p class="text-white text-center text-3xl xl:text-5xl font-bold ms-4 my-8 xl:my-14">
-        Rendelj Váradifis pólót
+        {{ $t("orderShirt") }}
       </p>
     </div>
     <div class="flex flex-col xl:flex-row justify-between items-center">
@@ -72,18 +68,22 @@ async function submitForm() {
       />
       <form @submit.prevent="submitForm" v-if="!formSubmitted">
         <div>
-          <label for="name" class="block mb-2 text-sm font-medium text-white">Nev</label>
+          <label for="name" class="block mb-2 text-sm font-medium text-white">{{
+            $t("fullName")
+          }}</label>
           <input
             type="text"
             id="name"
             class="bg-gray-500 border border-gray-300 text-white text-sm rounded-lg block w-full p-2.5"
-            placeholder="Teljes nev"
+            :placeholder="$t('placeholderName')"
             v-model="clientName"
             required
           />
         </div>
         <div>
-          <label for="phone" class="block mb-2 text-sm font-medium text-white">Telefonszam</label>
+          <label for="phone" class="block mb-2 text-sm font-medium text-white">{{
+            $t("phoneNr")
+          }}</label>
           <input
             type="tel"
             id="phone"
@@ -106,14 +106,16 @@ async function submitForm() {
           />
         </div>
         <div>
-          <label for="size" class="block mb-2 text-sm font-medium text-white">Meret</label>
+          <label for="size" class="block mb-2 text-sm font-medium text-white">{{
+            $t("shirtSize")
+          }}</label>
           <select
             id="size"
             class="bg-gray-500 border border-gray-300 text-white text-sm rounded-lg block w-full p-2.5"
             required
             v-model="shirtSize"
           >
-            <option value="" disabled selected>Kerlek valassz meretet</option>
+            <option value="" disabled selected>{{ $t("selectSize") }}</option>
             <option value="XS">XS</option>
             <option value="S">S</option>
             <option value="M">M</option>
@@ -123,25 +125,27 @@ async function submitForm() {
           </select>
         </div>
         <div>
-          <label for="type" class="block mb-2 text-sm font-medium text-white">Tipus</label>
+          <label for="type" class="block mb-2 text-sm font-medium text-white">{{
+            $t("shirtType")
+          }}</label>
           <select
             id="type"
             class="bg-gray-500 border border-gray-300 text-white text-sm rounded-lg block w-full p-2.5"
             required
             v-model="shirtType"
           >
-            <option value="" disabled selected>Kerlek valassz tipust</option>
+            <option value="" disabled selected>{{ $t("selectType") }}</option>
             <option value="Sima-polo-25" data-image="/src/images/shirts.png">
-              Sima póló- 25 lej
+              {{ $t("simpleShirt") }}
             </option>
             <option value="Galleros-polo-35" data-image="/src/images/shirts2.png">
-              Galléros póló- 35 lej
+              {{ $t("collarShirt") }}
             </option>
             <option value="Pulcsi- 60 lej" data-image="/src/images/shirts3.png">
-              Pulcsi- 60 lej
+              {{ $t("simpleHoodie") }}
             </option>
             <option value="Kapucnis pulcsi- 70 lej" data-image="/src/images/shirts4.png">
-              Kapucnis pulcsi- 70 lej
+              {{ $t("hoodedHoodie") }}
             </option>
           </select>
         </div>
@@ -155,23 +159,22 @@ async function submitForm() {
               required
             />
           </div>
-          <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >Elfogadom, hogy a Varadifi felhasználja személyes adataimat a rendelésem feldolgozása
-            és szállítása érdekében</label
-          >
+          <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{
+            $t("termsAndConditions")
+          }}</label>
         </div>
         <div class="flex justify-between">
           <button
             type="submit"
             class="text-black-800 hover:text-white bg-amber-100 hover:bg-amber-700 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
           >
-            Rendelj!
+            {{ $t("placeOrder") }}
           </button>
           <RouterLink
             to="/chart"
             class="hover:underline text-center me-6 text-amber-100 hover:text-amber-700"
           >
-            <i class="bi bi-cart-fill">Kosar megtekintese</i>
+            <i class="bi bi-cart-fill">{{ $t("checkCart") }}</i>
           </RouterLink>
         </div>
       </form>
@@ -179,18 +182,17 @@ async function submitForm() {
         <h2
           class="mb-4 text-4xl tracking-tight font-extrabold text-start text-gray-900 dark:text-white"
         >
-          Koszonjuk!
+          {{ $t("thankYouMessage") }}!
         </h2>
         <p class="mb-8 lg:mb-16 font-light text-start text-gray-500 dark:text-gray-400 sm:text-xl">
-          A rendelesed sikeresen megerkezett hozzank. Tovabbi reszletekert ellenorizd az email
-          fiokodat.
+          {{ $t("confirmOrder") }}
         </p>
         <div>
           <RouterLink to="/chart" class="hover:underline me-6 text-amber-100 hover:text-amber-700">
-            <i class="bi bi-cart-fill">Kosar megtekintese</i>
+            <i class="bi bi-cart-fill">{{ $t("checkCart") }}</i>
           </RouterLink>
           <RouterLink to="/" class="hover:underline me-6 text-amber-100 hover:text-amber-700">
-            <i class="bi bi-house-fill">Vissza a fooldalra </i>
+            <i class="bi bi-house-fill">{{ $t("backToHome") }} </i>
           </RouterLink>
         </div>
       </div>

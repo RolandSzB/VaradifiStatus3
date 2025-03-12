@@ -28,7 +28,25 @@ export default {
     joinButton: "Join",
     //content
     varadifiContent: "Varadifi content",
-    placeholderName: "Enter your name",
+    //order page+form
+    fullName: "Name",
+    placeholderName: "Full name",
+    phoneNr: "Phone number",
+    shirtSize: "Shirt size",
+    selectSize: "Please select size",
+    shirtType: "Shirt type",
+    selectType: "Please select type",
+    simpleShirt: "Simple shirt- 25RON",
+    collarShirt: "Collar shirt- 35RON",
+    simpleHoodie: "Hoodie- 60RON",
+    hoodedHoodie: "Hooded hoodie- 70RON",
+    termsAndConditions:
+      "I accept that Varadifi will use my personal data for processing and delivering my order.",
+    checkCart: "Check cart",
+    thankYouMessage: "Thank you!",
+    confirmOrder:
+      "Your order has been successfully received. For further details, please check your email!",
+    backToHome: "Back to homepage",
     dateMonth: "Month: {month}",
   },
   hu: {
@@ -60,7 +78,25 @@ export default {
     joinButton: "Csatlakozz",
     //tartalmak
     varadifiContent: "Váradifis tartalmak",
-    placeholderName: "Add meg a neved",
+    //rendelés oldal+form
+    fullName: "Név",
+    placeholderName: "Teljes Név",
+    phoneNr: "Telefonszám",
+    shirtSize: "Méret",
+    selectSize: "Kérlek válassz méretet",
+    shirtType: "Típus",
+    selectType: "Kérlek válassz típust",
+    simpleShirt: "Sima póló- 25 lej",
+    collarShirt: "Galléros póló- 35 lej",
+    simpleHoodie: "Pulcsi- 60 lej",
+    hoodedHoodie: "Kapucnis pulcsi- 70 lej",
+    termsAndConditions:
+      "Elfogadom, hogy a Varadifi felhasználja személyes adataimat a rendelésem feldolgozása és szállítása érdekében",
+    checkCart: "Kosár megtekintése",
+    thankYouMessage: "Köszönjük!",
+    confirmOrder:
+      "A rendelésed sikeresen megérkezett hozzánk. További részletekért ellenőrizd az email fiókodat!",
+    backToHome: "Vissza a főoldalra",
     dateMonth: "Hónap: {month}",
   },
 };
