@@ -135,16 +135,16 @@ async function submitForm() {
             v-model="shirtType"
           >
             <option value="" disabled selected>{{ $t("selectType") }}</option>
-            <option value="Sima-polo-25" data-image="/src/images/shirts.png">
+            <option :value="$t('simpleShirt')" data-image="/src/images/shirts.png">
               {{ $t("simpleShirt") }}
             </option>
-            <option value="Galleros-polo-35" data-image="/src/images/shirts2.png">
+            <option :value="$t('collarShirt')" data-image="/src/images/shirts2.png">
               {{ $t("collarShirt") }}
             </option>
-            <option value="Pulcsi- 60 lej" data-image="/src/images/shirts3.png">
+            <option :value="$t('simpleHoodie')" data-image="/src/images/shirts3.png">
               {{ $t("simpleHoodie") }}
             </option>
-            <option value="Kapucnis pulcsi- 70 lej" data-image="/src/images/shirts4.png">
+            <option :value="$t('hoodedHoodie')" data-image="/src/images/shirts4.png">
               {{ $t("hoodedHoodie") }}
             </option>
           </select>
