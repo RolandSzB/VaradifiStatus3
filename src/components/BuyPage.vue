@@ -12,11 +12,11 @@ const shirtType = ref(0);
 
 const computedImageUrl = computed(() => {
   const selectedShirt = shirtType.value;
-  if (!selectedShirt) return "../images/shirts.png"; // Default image
+  if (!selectedShirt) return "/src/images/shirts.png"; // Default image
 
   const optionElement = document.querySelector(`#type option[value="${selectedShirt}"]`);
   const imageData = optionElement?.dataset.image;
-  return imageData || "../images/shirts.png"; // Fallback if no image data found
+  return imageData || "/src/images/shirts.png"; // Fallback if no image data found
 });
 
 async function submitForm() {

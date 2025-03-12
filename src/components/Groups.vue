@@ -1,8 +1,6 @@
 <script></script>
 <template>
-  <div
-    class="flex flex-col xl:flex-row bg-white justify-between items-center px-14 xl:px-60"
-  >
+  <div class="flex flex-col xl:flex-row bg-white justify-between items-center px-14 xl:px-60">
     <img
       src="../images/group.png"
       alt="Logo"
@@ -13,7 +11,7 @@
         Csatlakozz egy kiscsoporthoz
       </p>
       <a
-        href="https://forms.gle/E6PVSp7aKHtBWQvAA"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSenDEIRO-sMmXNnGK6qHEspgn_yFJEZBEpEI7b9ln3jOTwa9g/viewform"
         target="_blank"
         class="block mx-auto max-w-max"
       >
