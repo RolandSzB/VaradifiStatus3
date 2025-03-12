@@ -15,6 +15,9 @@ export default {
     shirts: "Shirts",
     aboutUs: "About",
     placeOrder: "Order",
+    //home
+    bigTitle: "This is your place!",
+    groupName: "Oradea Baptist Youth Group",
     placeholderName: "Enter your name",
     dateMonth: "Month: {month}",
   },
@@ -34,6 +37,9 @@ export default {
     shirts: "Pólók",
     aboutUs: "Rólunk",
     placeOrder: "Rendelj",
+    //kezdolap
+    bigTitle: "Itt a helyed!",
+    groupName: "Nagyváradi Baptista Ifjúság",
     placeholderName: "Add meg a neved",
     dateMonth: "Hónap: {month}",
   },

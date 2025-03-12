@@ -1,13 +1,7 @@
 <script></script>
 <template>
   <div class="flex relative h-screen w-full">
-    <video
-      autoplay
-      muted
-      loop
-      playsinline
-      class="hidden xl:block object-cover w-full h-full"
-    >
+    <video autoplay muted loop playsinline class="hidden xl:block object-cover w-full h-full">
       <source src="../images/homeVideo.mp4" type="video/mp4" />
     </video>
     <img
@@ -24,12 +18,12 @@
       <p
         class="scale-up-center text-amber-100 text-center text-5xl xl:text-8xl font-bold tracking-widest uppercase mb-14"
       >
-        Itt a helyed!
+        {{ $t("bigTitle") }}
       </p>
       <p
         class="scale-up-center text-white text-center text-sm xl:text-2xl font-sans tracking-wider mt-8"
       >
-        Nagyváradi Baptista Ifjúság
+        {{ $t("groupName") }}
       </p>
     </div>
   </div>

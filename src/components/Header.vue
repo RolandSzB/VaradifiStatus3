@@ -56,6 +56,7 @@ const scrollToSection = sectionId => {
         </router-link>
       </div>
 
+      <!-- PC NÉZET -->
       <div class="hidden xl:flex items-center">
         <a
           @click.prevent="scrollToSection('home')"
@@ -84,15 +85,29 @@ const scrollToSection = sectionId => {
         <router-link to="/buy" class="hover:underline me-6 hover:text-amber-700">
           {{ $t("placeOrder") }}
         </router-link>
-        <select v-model="$i18n.locale" class="bg-amber-100 border-2 border-black rounded-lg p-1">
+
+        <select
+          v-model="$i18n.locale"
+          class="bg-amber-100 border-2 border-black rounded-lg p-1 hidden xl:block"
+        >
           <option value="hu">Magyar</option>
           <option value="en">English</option>
         </select>
       </div>
 
-      <button @click="toggleDropdown" class="text-3xl xl:hidden relative">
-        <i class="bi bi-list hover:text-amber-700"></i>
-      </button>
+      <div class="xl:hidden flex items-center">
+        <select
+          v-model="$i18n.locale"
+          class="bg-amber-100 border-2 border-black rounded-lg p-1 me-3"
+        >
+          <option value="hu">Magyar</option>
+          <option value="en">English</option>
+        </select>
+
+        <button @click="toggleDropdown" class="text-3xl relative">
+          <i class="bi bi-list hover:text-amber-700"></i>
+        </button>
+      </div>
 
       <div
         v-show="isDropdownOpen"
