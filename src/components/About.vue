@@ -33,7 +33,7 @@
   </div>
   <div class="flex bg-black justify-center items-center">
     <p
-      class="flex text-white font-bold text-xl xl:text-2xl tracking-widest pb-10 px-64 text-center"
+      class="flex text-white font-bold text-xl xl:text-2xl tracking-widest pb-10 px-4 xl:px-64 text-center"
     >
       Ha keresed a helyedet, ha keresed, hogy ki vagy, ha keresel egy helyet, ahol önmagad lehetsz,
       ha keresel valakit, akit barátnak nevezz, ha keresed Istent… ITT A HELYED! Ha Nagyváradon
@@ -43,7 +43,7 @@
     </p>
   </div>
   <div class="flex bg-black justify-center items-center">
-    <p class="text-gray-400 text-lg pb-10 px-64 text-center">
+    <p class="text-gray-400 text-lg pb-10 px-4 xl:px-64 text-center">
       Nagyváradi keresztény ifjúsági csoport, akik heti szinten találkozunk, hogy beszélgessünk,
       dicsőitsünk és tanuljunk a Biblából. Várunk téged is minden szerdán 7től!
     </p>
