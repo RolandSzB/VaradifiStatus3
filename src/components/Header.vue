@@ -57,9 +57,12 @@ const scrollToSection = sectionId => {
       </div>
 
       <div class="hidden xl:flex items-center">
-        <router-link to="/buy" class="hover:underline me-6 hover:text-amber-700">
-          Rendelj
-        </router-link>
+        <a
+          @click.prevent="scrollToSection('home')"
+          class="hover:underline me-6 hover:text-amber-700 cursor-pointer"
+        >
+          Kezdőlap
+        </a>
         <a
           @click.prevent="scrollToSection('events')"
           class="hover:underline me-6 hover:text-amber-700 cursor-pointer"
@@ -73,11 +76,14 @@ const scrollToSection = sectionId => {
           Pólók
         </a>
         <a
-          @click.prevent="scrollToSection('eventabouts')"
+          @click.prevent="scrollToSection('about')"
           class="hover:underline me-6 hover:text-amber-700 cursor-pointer"
         >
           Rólunk
         </a>
+        <router-link to="/buy" class="hover:underline me-6 hover:text-amber-700">
+          Rendelj
+        </router-link>
       </div>
 
       <button @click="toggleDropdown" class="text-3xl xl:hidden relative">
@@ -91,13 +97,12 @@ const scrollToSection = sectionId => {
       >
         <ul class="py-2 text-sm text-black text-center">
           <li>
-            <router-link
-              to="/buy"
-              @click="isDropdownOpen = false"
-              class="block py-2 hover:underline hover:text-amber-700"
+            <a
+              @click.prevent="scrollToSection('home')"
+              class="block py-2 hover:underline hover:text-amber-700 cursor-pointer"
             >
-              Rendelj
-            </router-link>
+              Kezdőlap
+            </a>
           </li>
           <li>
             <a
@@ -117,11 +122,20 @@ const scrollToSection = sectionId => {
           </li>
           <li>
             <a
-              @click.prevent="scrollToSection('eventabouts')"
+              @click.prevent="scrollToSection('about')"
               class="block py-2 hover:underline hover:text-amber-700 cursor-pointer"
             >
               Rólunk
             </a>
+          </li>
+          <li>
+            <router-link
+              to="/buy"
+              @click="isDropdownOpen = false"
+              class="block py-2 hover:underline hover:text-amber-700"
+            >
+              Rendelj
+            </router-link>
           </li>
         </ul>
       </div>
