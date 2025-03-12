@@ -47,6 +47,10 @@ export default {
     confirmOrder:
       "Your order has been successfully received. For further details, please check your email!",
     backToHome: "Back to homepage",
+    //cart page
+    ordersList: "Orders",
+    myOrders: "My orders",
+    item: "Item:",
     dateMonth: "Month: {month}",
   },
   hu: {
@@ -97,6 +101,10 @@ export default {
     confirmOrder:
       "A rendelésed sikeresen megérkezett hozzánk. További részletekért ellenőrizd az email fiókodat!",
     backToHome: "Vissza a főoldalra",
+    //kosar oldal
+    ordersList: "Vásárlások",
+    myOrders: "Rendeléseim",
+    item: "Termék",
     dateMonth: "Hónap: {month}",
   },
 };

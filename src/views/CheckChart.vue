@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import axios from "axios";
+import Header from "../components/Header.vue";
 
 let cartJSON = ref();
 
@@ -16,9 +17,7 @@ async function deleteProduct(productId) {
 
   try {
     await axios.delete("http://localhost:3000/products", {
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       data: { productId },
     });
 
@@ -32,18 +31,19 @@ async function deleteProduct(productId) {
 }
 </script>
 <template>
+  <Header />
   <hr class="bg-black border-black border" />
-  <div class="flex flex-col bg-amber-100 w-full h-full pt-2">
+  <div class="flex flex-col bg-amber-100 w-full h-full pt-16">
     <div class="flex justify-center items-center">
       <div class="w-full max-w-md p-4 bg-amber-200 border border-black rounded-lg shadow sm:p-8">
         <div class="flex items-center justify-between mb-4">
-          <h5 class="text-2xl font-bold leading-none text-gray-900">Vasarlasok</h5>
+          <h5 class="text-2xl font-bold leading-none text-gray-900">{{ $t("ordersList") }}</h5>
           <button
             @click="displayPostAPIWelcome"
             type="button"
             class="text-black-800 hover:text-white bg-amber-100 hover:bg-amber-700 font-medium rounded-lg text-sm py-3 ms-6 m-2 w-24 text-center border-black border-2"
           >
-            Rendeleseim
+            {{ $t("myOrders") }}
           </button>
         </div>
 
@@ -63,7 +63,7 @@ async function deleteProduct(productId) {
                   </p>
                 </div>
                 <div class="flex flex-col items-center">
-                  <p class="text-base font-semibold text-gray-900">Termek:</p>
+                  <p class="text-base font-semibold text-gray-900">{{ $t("item") }}</p>
                   <p class="text-base text-gray-900">
                     {{ product.type }}
                   </p>
