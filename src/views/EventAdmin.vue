@@ -1,4 +1,5 @@
 <script setup>
+import Header from "../components/Header.vue";
 import AdminCalendar from "../components/AdminCalendar.vue";
 import AdminPage from "../components/AdminPage.vue";
 import { useEventsStore } from "../stores/events";
@@ -16,6 +17,7 @@ onMounted(async () => {
 </script>
 
 <template>
+  <Header></Header>
   <div class="flex bg-amber-100 items-center justify-center">
     <div>
       <AdminPage></AdminPage>

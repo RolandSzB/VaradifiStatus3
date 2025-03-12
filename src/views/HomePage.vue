@@ -1,4 +1,5 @@
 <script setup>
+import Header from "../components/Header.vue";
 import Home from "../components/Home.vue";
 import Events from "../components/Events.vue";
 import EventCalendar from "../components/EventCalendar.vue";
@@ -24,16 +25,21 @@ const postStore = usePostsStore();
 </script>
 
 <template>
-  <Home></Home>
-  <Events></Events>
-  <EventCalendar v-for="event in eventStore.events" :details="event"></EventCalendar>
-  <Shirts></Shirts>
-  <Groups></Groups>
-  <Content></Content>
+  <Header></Header>
+  <Home id="home"></Home>
+  <Events id="events"></Events>
+  <EventCalendar
+    v-for="event in eventStore.events"
+    :details="event"
+    id="event-calendar"
+  ></EventCalendar>
+  <Shirts id="shirts"></Shirts>
+  <Groups id="groups"></Groups>
+  <Content id="content"></Content>
   <div class="flex flex-col xl:flex-row bg-amber-100 xl:px-4 justify-center h-196">
     <InstaFeed v-for="post in postStore.posts" :details="post"></InstaFeed>
   </div>
-  <About></About>
+  <About id="about"></About>
 </template>
 
 <style>
