@@ -51,7 +51,7 @@ const scrollToSection = sectionId => {
   >
     <div class="flex justify-between p-3 items-center">
       <div class="flex items-center">
-        <router-link to="/" class="hover:underline me-6 hover:bg-amber-300 hover:rounded-lg">
+        <router-link to="/admin" class="hover:underline me-6 hover:bg-amber-300 hover:rounded-lg">
           <img src="../images/varadifi.png" alt="Logo" class="w-8 h-8 object-cover" />
         </router-link>
       </div>
