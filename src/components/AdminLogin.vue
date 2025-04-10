@@ -5,6 +5,7 @@ import axios from "axios";
 const email = ref("");
 const password = ref("");
 const error = ref("");
+const showPassword = ref(false);
 const emit = defineEmits(["login-success"]);
 
 const login = async () => {
@@ -24,6 +25,10 @@ const login = async () => {
     error.value = "Server error. Please try again.";
   }
 };
+
+const togglePassword = () => {
+  showPassword.value = !showPassword.value;
+};
 </script>
 
 <template>
@@ -42,12 +47,19 @@ const login = async () => {
         </div>
         <div>
           <label class="block mb-2 text-sm font-medium text-black">Password</label>
-          <input
-            type="password"
-            v-model="password"
-            required
-            class="bg-amber-100 border-2 border-black text-black text-sm rounded-lg block w-full p-2.5"
-          />
+          <div class="relative">
+            <input
+              :type="showPassword ? 'text' : 'password'"
+              v-model="password"
+              required
+              class="bg-amber-100 border-2 border-black text-black text-sm rounded-lg block w-full p-2.5 pr-10"
+            />
+            <i
+              :class="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"
+              class="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-lg text-black"
+              @click="togglePassword"
+            ></i>
+          </div>
         </div>
         <div v-if="error" class="text-red-500 text-sm">{{ error }}</div>
         <div class="flex justify-center">
