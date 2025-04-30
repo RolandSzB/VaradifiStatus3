@@ -13,6 +13,7 @@ export const usePostsStore = defineStore("posts", {
           link: "https://www.instagram.com/p/C0ERC3ot5me/embed",
         },
       ],
+      
     };
   },
 });

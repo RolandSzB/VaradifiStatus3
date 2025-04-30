@@ -9,6 +9,7 @@ import Content from "../components/Content.vue";
 import InstaFeed from "../components/InstaFeed.vue";
 import About from "../components/About.vue";
 import CopyrightPage from "../components/CopyrightPage.vue";
+import ChatBubble from "../components/ChatBubble.vue";
 import { useEventsStore } from "../stores/events";
 import { usePostsStore } from "../stores/posts";
 
@@ -28,6 +29,7 @@ const postStore = usePostsStore();
 <template>
   <Header></Header>
   <Home id="home"></Home>
+  <ChatBubble />
   <Events id="events"></Events>
   <EventCalendar
     v-for="event in eventStore.events"
