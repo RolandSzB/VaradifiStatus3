@@ -1,22 +1,20 @@
 <template>
-  <!-- Butonul flotant de chat -->
   <div class="fixed bottom-4 right-4 z-50">
     <button
-      class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg"
+      class="bg-amber-300 hover:bg-amber-500 text-white p-5 rounded-full shadow-lg"
       @click="toggleChat"
     >
-      <span v-if="!isOpen">💬</span>
-      <span v-else>❌</span>
+      <span v-if="!isOpen"><i class="bi bi-chat-dots-fill"></i></span>
+      <span v-else><i class="bi bi-x-circle text-red-700"></i></span>
     </button>
   </div>
 
-  <!-- Fereastra de chat -->
   <div v-if="isOpen" class="fixed bottom-20 right-4 bg-white shadow-lg rounded-xl w-80 p-4 z-40">
     <div class="overflow-y-auto h-64 mb-4 border p-2 rounded">
       <div v-for="(msg, index) in messages" :key="index" class="mb-2">
         <div :class="msg.sender === 'user' ? 'text-right' : 'text-left'">
           <span
-            :class="msg.sender === 'user' ? 'bg-blue-200' : 'bg-green-200'"
+            :class="msg.sender === 'user' ? 'bg-amber-500' : 'bg-amber-200'"
             class="inline-block p-2 rounded"
           >
             {{ msg.text }}
@@ -29,9 +27,9 @@
         v-model="userMessage"
         @keyup.enter="sendMessage"
         class="border rounded w-full p-2 mr-2"
-        placeholder="Scrie un mesaj..."
+        placeholder="Kérdezz bátran..."
       />
-      <button @click="sendMessage" class="bg-blue-500 text-white px-4 py-2 rounded">Trimite</button>
+      <button @click="sendMessage" class="bg-amber-500 text-white px-4 py-2 rounded">Küldés</button>
     </div>
   </div>
 </template>
@@ -40,22 +38,12 @@
 import { ref, onMounted } from "vue";
 import axios from "axios";
 
-const isOpen = ref(false); // 👈 Adăugat
-
+const isOpen = ref(false);
 const messages = ref([]);
 const userMessage = ref("");
+const userId = localStorage.getItem("chatUserId") || crypto.randomUUID();
 
-// Identificator unic pentru utilizator
-const userId = ref(sessionStorage.getItem("userId") || generateUserId());
-
-// Dacă nu avem un userId, îl generăm și-l stocăm în sessionStorage
-if (!sessionStorage.getItem("userId")) {
-  sessionStorage.setItem("userId", userId.value);
-}
-
-function generateUserId() {
-  return "user-" + Math.random().toString(36).substr(2, 9); // Generează un ID unic pentru utilizator
-}
+localStorage.setItem("chatUserId", userId);
 
 function toggleChat() {
   isOpen.value = !isOpen.value;
@@ -63,7 +51,6 @@ function toggleChat() {
 
 function addMessage(text, sender) {
   messages.value.push({ text, sender });
-  sessionStorage.setItem("messages", JSON.stringify(messages.value)); // Salvează mesajele curente
 }
 
 async function sendMessage() {
@@ -75,21 +62,25 @@ async function sendMessage() {
   try {
     await axios.post("http://localhost:3000/api/chat", {
       message: text,
-      userId: userId.value, // Trimite și userId pentru a-l asocia cu răspunsul
+      userId, // 👈 acest ID trebuie trimis din frontend
     });
     userMessage.value = "";
   } catch (err) {
-    addMessage("Eroare la trimitere", "bot");
+    addMessage("Sikertelen küldés", "bot");
   }
 }
 
-// Polling pentru a obține mesaje noi de la bot
+// Polling pentru răspunsuri
 onMounted(() => {
   setInterval(async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/messages/${userId.value}`);
+      const res = await axios.get("http://localhost:3000/api/messages");
+
       res.data.forEach(msg => {
-        if (!messages.value.some(m => m.id === msg.id)) {
+        if (
+          msg.userId === userId && // 👈 Afișează doar mesajele pentru utilizatorul curent
+          !messages.value.some(m => m.id === msg.id)
+        ) {
           messages.value.push({ text: msg.text, sender: "bot", id: msg.id });
         }
       });
