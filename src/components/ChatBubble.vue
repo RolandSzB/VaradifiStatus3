@@ -27,9 +27,11 @@
         v-model="userMessage"
         @keyup.enter="sendMessage"
         class="border rounded w-full p-2 mr-2"
-        placeholder="Kérdezz bátran..."
+        :placeholder="$t('chatPlaceholder')"
       />
-      <button @click="sendMessage" class="bg-amber-500 text-white px-4 py-2 rounded">Küldés</button>
+      <button @click="sendMessage" class="bg-amber-500 text-white px-4 py-2 rounded">
+        {{ $t("chatSendButton") }}
+      </button>
     </div>
   </div>
 </template>

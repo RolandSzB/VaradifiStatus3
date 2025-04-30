@@ -52,6 +52,9 @@ export default {
     myOrders: "My orders",
     item: "Item:",
     dateMonth: "Month: {month}",
+    //chatbot
+    chatPlaceholder: "Ask me something...",
+    chatSendButton: "Send",
   },
   hu: {
     //Rolunk
@@ -106,5 +109,8 @@ export default {
     myOrders: "Rendeléseim",
     item: "Termék",
     dateMonth: "Hónap: {month}",
+    //chatbot
+    chatPlaceholder: "Kérdezz bátran...",
+    chatSendButton: "Küldés",
   },
 };
