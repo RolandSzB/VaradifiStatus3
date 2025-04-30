@@ -27,11 +27,9 @@
         v-model="userMessage"
         @keyup.enter="sendMessage"
         class="border rounded w-full p-2 mr-2"
-        :placeholder="$t('chatPlaceholder')"
+        placeholder="Kérdezz bátran..."
       />
-      <button @click="sendMessage" class="bg-amber-500 text-white px-4 py-2 rounded">
-        {{ $t("chatSendButton") }}
-      </button>
+      <button @click="sendMessage" class="bg-amber-500 text-white px-4 py-2 rounded">Küldés</button>
     </div>
   </div>
 </template>
@@ -64,7 +62,7 @@ async function sendMessage() {
   try {
     await axios.post("http://localhost:3000/api/chat", {
       message: text,
-      userId, // 👈 acest ID trebuie trimis din frontend
+      userId,
     });
     userMessage.value = "";
   } catch (err) {
@@ -72,17 +70,16 @@ async function sendMessage() {
   }
 }
 
-// Polling pentru răspunsuri
+// 🔁 Polling pentru mesaje noi
 onMounted(() => {
   setInterval(async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/messages");
+      const res = await axios.get("http://localhost:3000/api/messages", {
+        params: { userId }, // ✅ Trimitem userId corect aici
+      });
 
       res.data.forEach(msg => {
-        if (
-          msg.userId === userId && // 👈 Afișează doar mesajele pentru utilizatorul curent
-          !messages.value.some(m => m.id === msg.id)
-        ) {
+        if (!messages.value.some(m => m.id === msg.id)) {
           messages.value.push({ text: msg.text, sender: "bot", id: msg.id });
         }
       });
